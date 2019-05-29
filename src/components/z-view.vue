@@ -15,9 +15,12 @@
       <div class="z-outer-circle"  :style="responsive === true ? styles.plate : zpos.plate"></div>
       <z-scroll v-if="scrollBar" :scrollVal.sync="scrollVal" style="overflow: visible;"/>
       <z-slider v-if="slider === true" :progress='progress'/>
-      <div v-if="label" class="z-label" :class="labelPos">
-        <div class="inside">
-          {{label}}
+      <div v-if="label || $slots['label']" class="z-label" :class="labelPos">
+        <div v-if="$slots['label']" class="inside">
+            <slot name="label"></slot>    
+        </div>
+        <div v-if="label" class="inside">
+        {{label}}
         </div>
       </div>
       <div class="z-content maincontent" ref="maincontent" :class="[longContent, firefoxScroll]" @scroll.passive="scroll">
@@ -50,6 +53,9 @@ export default {
     size: {
       type: String,
       default: 'xxl'
+    },
+    labelRaw: {
+      type: [String, Number]
     },
     label: {
       type: [String, Number]
@@ -90,6 +96,11 @@ export default {
     }
   },
   computed: {
+/*    labelRaw () {
+       console.log("label Raw") 
+       return this.label + '!'
+    },  
+    */
     position () {
       return this.$zircle.calcViewPosition(this.fullView)
     },

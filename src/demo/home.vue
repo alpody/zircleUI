@@ -1,12 +1,18 @@
 <template>
-  <z-view style="border-width: 8px;">
-    WELCOME TO ZIRCLE UI
+    <z-view style="border-width: 8px;">
+        <div slot="label">
+         WELCOME<br/>TO<br/>ZIRCLE UI
+        </div>
     <div slot='extension'>
-      <z-spot
+      <z-spot  
+        size="s"
         :angle='45'
         to-view='docs'
         class='accent'
-        label='Docs'>
+        >
+        <div slot="label">
+            docs<br/>docs
+        </div>
         <i class='fas fa-book'></i>
       </z-spot>
       <z-spot

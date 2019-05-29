@@ -13,8 +13,9 @@
       <div class="z-pulse" ref="pulse"></div>
       <z-knob v-if="knob" :qty.sync="computedQty" :unit="unit" :min="min" :max="max" />
       <z-slider v-if="slider === true" :progress='progress' />
-      <div class="z-label" :class="labelPos" :style="$zircle.getThemeMode() === 'mode-light-filled' ? 'color: var(--accent-text-and-border-color);' : ''" v-if="label">
+      <div class="z-label" :class="labelPos" :style="$zircle.getThemeMode() === 'mode-light-filled' ? 'color: var(--accent-text-and-border-color);' : ''" v-if="label || $slots['label']">
         <div class="inside">
+            <slot name="label"></slot>    
         {{label}} <span v-if="pos === 'outside'"> {{progressLabel}}</span>
         </div>
       </div>
