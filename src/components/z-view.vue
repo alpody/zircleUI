@@ -54,9 +54,6 @@ export default {
       type: String,
       default: 'xxl'
     },
-    labelRaw: {
-      type: [String, Number]
-    },
     label: {
       type: [String, Number]
     },
@@ -96,11 +93,6 @@ export default {
     }
   },
   computed: {
-/*    labelRaw () {
-       console.log("label Raw") 
-       return this.label + '!'
-    },  
-    */
     position () {
       return this.$zircle.calcViewPosition(this.fullView)
     },
