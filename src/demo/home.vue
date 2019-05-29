@@ -5,7 +5,6 @@
         </div>
     <div slot='extension'>
       <z-spot  
-        size="s"
         :angle='45'
         to-view='docs'
         class='accent'
