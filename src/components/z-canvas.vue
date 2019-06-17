@@ -47,9 +47,11 @@ export default {
     goback () {
       if (this.$zircle.getPreviousViewName() !== '' && this.$zircle.getBackwardNavigationState() === false && this.$zircle.getRouterState() === false) {
         this.$zircle.goBack()
+        this.$emit('goBack')
       } else if (this.$zircle.getPreviousViewName() !== '' && this.$zircle.getBackwardNavigationState() === false && this.$zircle.getRouterState() === true) {
         this.$zircle.setNavigationMode('backward')
         this.$router.back()
+        this.$emit('goBack')
       }
     }
   },
